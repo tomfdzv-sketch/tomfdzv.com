@@ -184,7 +184,7 @@ body.reel-on .info .mono{color:#c9bda4}
   text-transform:uppercase;flex:none;white-space:nowrap}
 .cv .cvmeta{font-size:11px;color:var(--muted);letter-spacing:.08em;
   text-transform:uppercase;margin-top:3px}
-.cv .cvgroup{margin:20px 0 4px;font-size:14px;letter-spacing:.16em;
+.cv .cvgroup{margin:22px 0 4px;font-size:18px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--muted)}
 .cv .cvdetail{font-size:13px;color:var(--muted);margin-top:2px}
 .cv .cvlang{margin:6px 0 0;font-size:11px;letter-spacing:.16em;
