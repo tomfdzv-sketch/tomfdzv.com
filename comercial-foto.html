@@ -41,14 +41,27 @@
   </nav>
 </header>
 <div class="band">
-  <a class="feature" href="proyecto/new-balance-toluca-away-kit-foto.html">
-  <img src="assets/new-balance-toluca-away-kit-foto/cover.jpg" loading="lazy" alt="New Balance Toluca Away Kit">
+  <a class="feature live" data-base="assets/new-balance-toluca-away-kit-foto" data-imgs="001.jpg,002.jpg,003.jpg,004.jpg,005.jpg,006.jpg,007.jpg,008.jpg,009.jpg,010.jpg,011.jpg,012.jpg,013.jpg,014.jpg,015.jpg,016.jpg,017.jpg,018.jpg,019.jpg,020.jpg,021.jpg,022.jpg,023.jpg,024.jpg,025.jpg,026.jpg,027.jpg,028.jpg,029.jpg,030.jpg,031.jpg,032.jpg,033.jpg,034.jpg,035.jpg,036.jpg,037.jpg,038.jpg,039.jpg,040.jpg,041.jpg,042.jpg,043.jpg,044.jpg,045.jpg,046.jpg,047.jpg,048.jpg,049.jpg,050.jpg,051.jpg,052.jpg,053.jpg,054.jpg,055.jpg,056.jpg,057.jpg,058.jpg,059.jpg,060.jpg,061.jpg,062.jpg,063.jpg,064.jpg,065.jpg,066.jpg,067.jpg,068.jpg,069.jpg,070.jpg,071.jpg,072.jpg,073.jpg,074.jpg,075.jpg,076.jpg,077.jpg,078.jpg,079.jpg,080.jpg,081.jpg,082.jpg,083.jpg,084.jpg,085.jpg,086.jpg,087.jpg,088.jpg,089.jpg,090.jpg,091.jpg,092.jpg,093.jpg,094.jpg,095.jpg" href="proyecto/new-balance-toluca-away-kit-foto.html">
+  <img class="gs" src="assets/new-balance-toluca-away-kit-foto/cover.jpg" alt="New Balance Toluca Away Kit"><img class="gs" alt="">
   <span class="t">New Balance Toluca Away Kit</span>
   <span class="m mono">2026 · Toluca, México · Photographer</span>
 </a>
 </div>
 <div class="pnav"><a href="comercial.html">&larr; Comercial</a>
   <a href="#top">Arriba &uarr;</a></div>
+<script>
+document.querySelectorAll('.feature.live').forEach(cell=>{
+  const files=(cell.dataset.imgs||'').split(',').filter(Boolean);
+  const base=cell.dataset.base, gs=cell.querySelectorAll('img.gs');
+  if(files.length<2||gs.length<2)return;
+  let n=Math.floor(Math.random()*files.length),cur=gs[0],nxt=gs[1];
+  cur.src=base+'/'+files[n%files.length];n++;cur.classList.add('on');
+  function show(){const img=nxt;img.src=base+'/'+files[n%files.length];n++;
+    img.onload=()=>{img.classList.add('on');cur.classList.remove('on');
+      const t=cur;cur=img;nxt=t;};}
+  setTimeout(()=>{show();setInterval(show,5000);},1200+Math.random()*4800);
+});
+</script>
 <script>
 document.getElementById('mode').onclick=e=>{e.preventDefault();
   const d=document.documentElement.classList.toggle('dark');

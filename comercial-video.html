@@ -50,6 +50,19 @@
 <div class="pnav"><a href="comercial.html">&larr; Comercial</a>
   <a href="#top">Arriba &uarr;</a></div>
 <script>
+document.querySelectorAll('.feature.live').forEach(cell=>{
+  const files=(cell.dataset.imgs||'').split(',').filter(Boolean);
+  const base=cell.dataset.base, gs=cell.querySelectorAll('img.gs');
+  if(files.length<2||gs.length<2)return;
+  let n=Math.floor(Math.random()*files.length),cur=gs[0],nxt=gs[1];
+  cur.src=base+'/'+files[n%files.length];n++;cur.classList.add('on');
+  function show(){const img=nxt;img.src=base+'/'+files[n%files.length];n++;
+    img.onload=()=>{img.classList.add('on');cur.classList.remove('on');
+      const t=cur;cur=img;nxt=t;};}
+  setTimeout(()=>{show();setInterval(show,5000);},1200+Math.random()*4800);
+});
+</script>
+<script>
 document.getElementById('mode').onclick=e=>{e.preventDefault();
   const d=document.documentElement.classList.toggle('dark');
   localStorage.theme=d?'dark':'light'};
