@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tomás Fernández Vértiz — Director · Fotógrafo — Ciudad de México</title>
+<meta name="description" content="Director y fotógrafo mexicano en la Ciudad de México. Documental observacional, comercial y fotografía de viaje y de calle.">
+<link rel="canonical" href="https://tomfdzv.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tomás Fernández Vértiz">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Tomás Fernández Vértiz — Director · Fotógrafo — Ciudad de México">
+<meta property="og:description" content="Director y fotógrafo mexicano en la Ciudad de México. Documental observacional, comercial y fotografía de viaje y de calle.">
+<meta property="og:url" content="https://tomfdzv.com/">
+<meta property="og:image" content="https://tomfdzv.com/assets/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tomás Fernández Vértiz — Director · Fotógrafo — Ciudad de México">
+<meta name="twitter:description" content="Director y fotógrafo mexicano en la Ciudad de México. Documental observacional, comercial y fotografía de viaje y de calle.">
+<meta name="twitter:image" content="https://tomfdzv.com/assets/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#141210">
+<script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2f90eb2e">
+</head>
+<body>
+<header>
+  <div>
+    <h1 class="giant"><a href="index.html">Tomas<br>Fdz.<br>Vertiz</a></h1>
+    <p class="sub">Director · Fotógrafo — Ciudad de México</p>
+  </div>
+  <nav>
+    <a href="film.html">Film</a>
+    <a href="comercial.html">Comercial</a>
+    <a href="foto.html">Fotografía</a>
+    <a href="cv.html">CV</a>
+    <a href="info.html">Info</a>
+    <a href="#" id="mode" title="Cambiar modo claro/oscuro">◐</a>
+  </nav>
+</header>
+<div id="reel" aria-hidden="true"><video muted playsinline preload="auto" disablepictureinpicture></video><div class="veil"></div></div><div id="reelcap" class="mono"></div>
+<script>
+(function(){
+  var CLIPS=["reel1.mp4", "reel10_nb.mp4", "reel11_nb.mp4", "reel12_nbdc.mp4", "reel2.mp4", "reel3.mp4", "reel4.mp4", "reel5.mp4", "reel6.mp4", "reel7_sentir.mp4", "reel8_sentir.mp4", "reel9_sentir.mp4", "reel_2y3a.mp4", "reel_2y3b.mp4"];
+  if(!CLIPS.length)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(!matchMedia('(min-width:640px)').matches)return;   // móvil: sin video
+  var wrap=document.getElementById('reel'),cap=document.getElementById('reelcap');
+  var v=wrap.querySelector('video'),q=CLIPS.slice(),n=0,moving=false;
+  for(var i=q.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=q[i];q[i]=q[j];q[j]=t;}
+  function title(f){
+    return f.indexOf('sentir')>-1?'El Sentir de las Montañas'
+         : f.indexOf('_nb')>-1?'New Balance — Toluca Away Kit'
+         : f.indexOf('2y3')>-1?'Dos Noches y Tres Días'
+         : f.indexOf('lmff')>-1?'London Migration Film Festival '+(f.match(/lmff(\d{4})/)||['',''])[1]
+         : 'Bajo el Mismo Sol';
+  }
+  function play(){
+    var f=q[n%q.length];n++;
+    v.src='assets/reel/'+f;v.load();
+    if(cap)cap.textContent='▸ '+title(f);
+    var p=v.play();if(p&&p.catch)p.catch(function(){});
+  }
+  function next(){                       // fundido a negro y siguiente clip
+    if(moving)return;moving=true;
+    wrap.classList.remove('play');
+    setTimeout(function(){moving=false;play();},600);
+  }
+  v.addEventListener('playing',function(){
+    moving=false;wrap.classList.add('play');
+    document.documentElement.classList.add('reel-on');
+    document.body.classList.add('reel-on');
+  });
+  v.addEventListener('ended',next);
+  v.addEventListener('error',next);
+  play();
+})();
+</script>
+<div class="gatespace" aria-hidden="true"></div>
+<script>
+document.getElementById('mode').onclick=e=>{e.preventDefault();
+  const d=document.documentElement.classList.toggle('dark');
+  localStorage.theme=d?'dark':'light'};
+</script>
+
+</body>
+</html>
