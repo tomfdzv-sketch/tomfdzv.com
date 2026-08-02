@@ -40,40 +40,39 @@
     <a href="#" id="mode" title="Cambiar modo claro/oscuro">◐</a>
   </nav>
 </header>
-<div id="reel" aria-hidden="true"><video muted playsinline preload="auto" disablepictureinpicture></video><img alt=""><div class="veil"></div></div><div id="reelcap" class="mono"></div>
+<div id="reel" aria-hidden="true"><video muted playsinline preload="auto" disablepictureinpicture></video><div class="veil"></div></div><div id="reelcap" class="mono"></div>
 <script>
 (function(){
-  var IT=[{"s": "assets/reel/reel1.mp4", "v": 1, "c": "Bajo el Mismo Sol"}, {"s": "assets/reel/reel10_nb.mp4", "v": 1, "c": "New Balance \u2014 Toluca Away Kit"}, {"s": "assets/reel/reel11_nb.mp4", "v": 1, "c": "New Balance \u2014 Toluca Away Kit"}, {"s": "assets/reel/reel12_nbdc.mp4", "v": 1, "c": "New Balance \u2014 Toluca Away Kit"}, {"s": "assets/reel/reel2.mp4", "v": 1, "c": "Bajo el Mismo Sol"}, {"s": "assets/reel/reel3.mp4", "v": 1, "c": "Bajo el Mismo Sol"}, {"s": "assets/reel/reel4.mp4", "v": 1, "c": "Bajo el Mismo Sol"}, {"s": "assets/reel/reel5.mp4", "v": 1, "c": "Bajo el Mismo Sol"}, {"s": "assets/reel/reel6.mp4", "v": 1, "c": "Bajo el Mismo Sol"}, {"s": "assets/reel/reel7_sentir.mp4", "v": 1, "c": "El Sentir de las Monta\u00f1as"}, {"s": "assets/reel/reel8_sentir.mp4", "v": 1, "c": "El Sentir de las Monta\u00f1as"}, {"s": "assets/reel/reel9_sentir.mp4", "v": 1, "c": "El Sentir de las Monta\u00f1as"}, {"s": "assets/reel/reel_2y3a.mp4", "v": 1, "c": "Dos Noches y Tres D\u00edas"}, {"s": "assets/reel/reel_2y3b.mp4", "v": 1, "c": "Dos Noches y Tres D\u00edas"}, {"s": "assets/donde-empiezan-los-suenos-encontraran-nuestras-huellas-2016-/008.jpg", "v": 0, "c": "Donde Empiezan los Sue\u00f1os Encontraran Nuestras Huellas (2016 - Ongoing)"}, {"s": "assets/donde-empiezan-los-suenos-encontraran-nuestras-huellas-2016-/015.jpg", "v": 0, "c": "Donde Empiezan los Sue\u00f1os Encontraran Nuestras Huellas (2016 - Ongoing)"}, {"s": "assets/el-trayecto/004.jpg", "v": 0, "c": "El Trayecto"}, {"s": "assets/el-trayecto/007.jpg", "v": 0, "c": "El Trayecto"}, {"s": "assets/peak/004.jpg", "v": 0, "c": "Peak"}, {"s": "assets/peak/007.jpg", "v": 0, "c": "Peak"}, {"s": "assets/shingle-street/005.jpg", "v": 0, "c": "SHINGLE STREET"}, {"s": "assets/shingle-street/010.jpg", "v": 0, "c": "SHINGLE STREET"}, {"s": "assets/andalucia-luz-de-dia/005.jpg", "v": 0, "c": "Andaluc\u00eda, Luz de D\u00eda"}, {"s": "assets/andalucia-luz-de-dia/009.jpg", "v": 0, "c": "Andaluc\u00eda, Luz de D\u00eda"}, {"s": "assets/raices/013.jpg", "v": 0, "c": "Raices"}, {"s": "assets/raices/025.jpg", "v": 0, "c": "Raices"}, {"s": "assets/edificios/005.jpg", "v": 0, "c": "Edificios"}, {"s": "assets/edificios/009.jpg", "v": 0, "c": "Edificios"}, {"s": "assets/india/012.jpg", "v": 0, "c": "India"}, {"s": "assets/india/023.jpg", "v": 0, "c": "India"}, {"s": "assets/los-espacios-y-objetos-de-espana/005.jpg", "v": 0, "c": "Los Espacios y Objetos de Espa\u00f1a"}, {"s": "assets/los-espacios-y-objetos-de-espana/010.jpg", "v": 0, "c": "Los Espacios y Objetos de Espa\u00f1a"}, {"s": "assets/toilet-paper/002.jpg", "v": 0, "c": "Toilet Paper"}, {"s": "assets/toilet-paper/004.jpg", "v": 0, "c": "Toilet Paper"}];
-  if(!IT.length)return;
+  var CLIPS=["reel1.mp4", "reel10_nb.mp4", "reel11_nb.mp4", "reel12_nbdc.mp4", "reel2.mp4", "reel3.mp4", "reel4.mp4", "reel5.mp4", "reel6.mp4", "reel7_sentir.mp4", "reel8_sentir.mp4", "reel9_sentir.mp4", "reel_2y3a.mp4", "reel_2y3b.mp4"];
+  if(!CLIPS.length)return;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  if(!matchMedia('(min-width:640px)').matches)return;
+  if(!matchMedia('(min-width:640px)').matches)return;   // móvil: sin video
   var wrap=document.getElementById('reel'),cap=document.getElementById('reelcap');
-  var v=wrap.querySelector('video'),im=wrap.querySelector('img');
-  for(var i=IT.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=IT[i];IT[i]=IT[j];IT[j]=t;}
-  var n=0,tm=null;
-  function on(){document.documentElement.classList.add('reel-on');
-    document.body.classList.add('reel-on');}
-  function next(){wrap.classList.remove('imgon');play();}
-  function play(){
-    var it=IT[n%IT.length];n++;
-    if(tm){clearTimeout(tm);tm=null;}
-    if(it.v){
-      wrap.classList.remove('imgon');
-      v.src=it.s;v.load();if(cap)cap.textContent='▸ '+it.c;
-      var p=v.play();if(p&&p.catch)p.catch(function(){next();});
-    }else{
-      im.onload=function(){
-        wrap.classList.remove('play');v.pause();
-        void im.offsetWidth;
-        wrap.classList.add('imgon');on();
-        if(cap)cap.textContent='▸ '+it.c;
-        tm=setTimeout(next,6000);
-      };
-      im.onerror=function(){next();};
-      im.src=it.s;
-    }
+  var v=wrap.querySelector('video'),q=CLIPS.slice(),n=0,moving=false;
+  for(var i=q.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=q[i];q[i]=q[j];q[j]=t;}
+  function title(f){
+    return f.indexOf('sentir')>-1?'El Sentir de las Montañas'
+         : f.indexOf('_nb')>-1?'New Balance — Toluca Away Kit'
+         : f.indexOf('2y3')>-1?'Dos Noches y Tres Días'
+         : f.indexOf('lmff')>-1?'London Migration Film Festival '+(f.match(/lmff(\d{4})/)||['',''])[1]
+         : 'Bajo el Mismo Sol';
   }
-  v.addEventListener('playing',function(){wrap.classList.add('play');on();});
+  function play(){
+    var f=q[n%q.length];n++;
+    v.src='assets/reel/'+f;v.load();
+    if(cap)cap.textContent='▸ '+title(f);
+    var p=v.play();if(p&&p.catch)p.catch(function(){});
+  }
+  function next(){                       // fundido a negro y siguiente clip
+    if(moving)return;moving=true;
+    wrap.classList.remove('play');
+    setTimeout(function(){moving=false;play();},600);
+  }
+  v.addEventListener('playing',function(){
+    moving=false;wrap.classList.add('play');
+    document.documentElement.classList.add('reel-on');
+    document.body.classList.add('reel-on');
+  });
   v.addEventListener('ended',next);
   v.addEventListener('error',next);
   play();
