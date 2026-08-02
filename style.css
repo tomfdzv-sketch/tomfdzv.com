@@ -128,6 +128,11 @@ body.reel-on #reel{opacity:1}
   transition:opacity .6s ease;pointer-events:none;max-width:70vw;
   text-align:right;text-shadow:0 1px 10px rgba(0,0,0,.8)}
 body.reel-on #reelcap{opacity:.85}
+#reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .7s ease}
+#reel.imgon img{opacity:1;animation:kb 12s ease-out forwards}
+body.reel-on .info{background:rgba(20,18,16,.55);border-radius:4px;
+  margin:30px 26px 60px;padding:26px}
 
 /* ---------- video ---------- */
 .player{background:#141210;padding:0}
