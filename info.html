@@ -39,7 +39,6 @@
     <a href="cv.html">CV</a>
     <a href="info.html" class="on">Info</a>
     <span class="navlang mono"><a class="on">ES</a><i>/</i><a href="en/info.html">EN</a></span>
-    <a href="#" id="mode" title="Cambiar modo claro/oscuro">◐</a>
   </nav>
 </header>
 <div id="reel" aria-hidden="true"><video muted playsinline preload="auto" disablepictureinpicture></video><img alt=""><div class="veil"></div></div><div id="reelcap" class="mono"></div>
@@ -114,7 +113,8 @@
   rel="noopener">@tomfdzv</a> · Ciudad de México</p>
 </div>
 <script>
-document.getElementById('mode').onclick=e=>{e.preventDefault();
+const _m=document.getElementById('mode');
+if(_m)_m.onclick=e=>{e.preventDefault();
   const d=document.documentElement.classList.toggle('dark');
   localStorage.theme=d?'dark':'light'};
 </script>

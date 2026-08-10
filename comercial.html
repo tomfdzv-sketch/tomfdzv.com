@@ -69,7 +69,8 @@ function show(){var img=nxt;img.src=F[n%F.length];n++;
 show();setInterval(show,5000);})();
 </script>
 <script>
-document.getElementById('mode').onclick=e=>{e.preventDefault();
+const _m=document.getElementById('mode');
+if(_m)_m.onclick=e=>{e.preventDefault();
   const d=document.documentElement.classList.toggle('dark');
   localStorage.theme=d?'dark':'light'};
 </script>
