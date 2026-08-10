@@ -18,6 +18,12 @@ header nav{display:flex;gap:22px;font-size:13px;letter-spacing:.16em;
 .gatespace{height:62vh}
 header nav a{border-bottom:2px solid transparent;padding-bottom:3px}
 header nav a:hover,header nav a.on{border-color:var(--ink)}
+/* interruptor de idioma, junto al ◐ */
+header nav .navlang{display:inline-flex;align-items:center;font-size:12px;
+  letter-spacing:.16em;color:var(--muted)}
+header nav .navlang a{border-bottom:2px solid transparent;padding-bottom:3px}
+header nav .navlang a.on{color:var(--ink);border-color:var(--ink)}
+header nav .navlang i{font-style:normal;opacity:.5;margin:0 6px}
 .giant{font-family:"Oswald","Arial Narrow",sans-serif;font-weight:600;
   text-transform:uppercase;line-height:.9;letter-spacing:-.005em;margin:0;
   font-size:clamp(56px,11vw,150px)}

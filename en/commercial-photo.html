@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Commercial · Photography — Tomás Fernández Vértiz</title>
+<meta name="description" content="1 commercial photography projects Tomás Fernández Vértiz has worked on: assistant directing, production, camera and editing.">
+<link rel="canonical" href="https://tomfdzv.com/en/commercial-photo.html">
+<link rel="alternate" hreflang="es" href="https://tomfdzv.com/comercial-foto.html"><link rel="alternate" hreflang="en" href="https://tomfdzv.com/en/commercial-photo.html"><link rel="alternate" hreflang="x-default" href="https://tomfdzv.com/comercial-foto.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tomás Fernández Vértiz">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Commercial · Photography — Tomás Fernández Vértiz">
+<meta property="og:description" content="1 commercial photography projects Tomás Fernández Vértiz has worked on: assistant directing, production, camera and editing.">
+<meta property="og:url" content="https://tomfdzv.com/en/commercial-photo.html">
+<meta property="og:image" content="https://tomfdzv.com/assets/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Commercial · Photography — Tomás Fernández Vértiz">
+<meta name="twitter:description" content="1 commercial photography projects Tomás Fernández Vértiz has worked on: assistant directing, production, camera and editing.">
+<meta name="twitter:image" content="https://tomfdzv.com/assets/og.jpg">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#141210">
+<script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=105699fd">
+</head>
+<body>
+<header>
+  <div>
+    <h1 class="giant"><a href="index.html">Tomas<br>Fdz.<br>Vertiz</a></h1>
+    <p class="sub">Director · Photographer</p>
+  </div>
+  <nav>
+    <a href="film.html">Film</a>
+    <a href="commercial.html" class="on">Commercial</a>
+    <a href="photography.html">Photography</a>
+    <a href="cv.html">CV</a>
+    <a href="info.html">Info</a>
+    <span class="navlang mono"><a href="../comercial-foto.html">ES</a><i>/</i><a class="on">EN</a></span>
+    <a href="#" id="mode" title="Toggle light / dark mode">◐</a>
+  </nav>
+</header>
+<div class="band">
+  <a class="feature live" data-base="../assets/new-balance-toluca-away-kit-foto" data-imgs="001.jpg,002.jpg,003.jpg,004.jpg,005.jpg,006.jpg,007.jpg,008.jpg,009.jpg,010.jpg,011.jpg,012.jpg" href="proyecto/new-balance-toluca-away-kit-foto.html">
+  <img class="gs" src="../assets/new-balance-toluca-away-kit-foto/cover.jpg" alt="New Balance Toluca Away Kit"><img class="gs" alt="">
+  <span class="t">New Balance Toluca Away Kit</span>
+  <span class="m mono">2026 · Toluca, Mexico · Photographer</span>
+</a>
+</div>
+<div class="pnav"><a href="commercial.html">&larr; Commercial</a>
+  <a href="#top">Top &uarr;</a></div>
+<script>
+document.querySelectorAll('.feature.live').forEach(cell=>{
+  const files=(cell.dataset.imgs||'').split(',').filter(Boolean);
+  const base=cell.dataset.base, gs=cell.querySelectorAll('img.gs');
+  if(files.length<2||gs.length<2)return;
+  let n=Math.floor(Math.random()*files.length),cur=gs[0],nxt=gs[1];
+  cur.src=base+'/'+files[n%files.length];n++;cur.classList.add('on');
+  function show(){const img=nxt;img.src=base+'/'+files[n%files.length];n++;
+    img.onload=()=>{img.classList.add('on');cur.classList.remove('on');
+      const t=cur;cur=img;nxt=t;};}
+  setTimeout(()=>{show();setInterval(show,5000);},1200+Math.random()*4800);
+});
+</script>
+<script>
+document.getElementById('mode').onclick=e=>{e.preventDefault();
+  const d=document.documentElement.classList.toggle('dark');
+  localStorage.theme=d?'dark':'light'};
+</script>
+<footer>
+  <span>&copy; Tomás Fernández Vértiz</span>
+  <a href="mailto:hola@tomfdzv.com" class="mono">hola@tomfdzv.com</a>
+</footer>
+</body>
+</html>
