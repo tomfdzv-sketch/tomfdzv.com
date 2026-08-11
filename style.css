@@ -149,6 +149,23 @@ body.reel-on .info .mono{color:#c9bda4}
 .gallery figure:last-child{margin-bottom:0}
 .gallery img{width:100%;height:auto;display:block}
 .gallery .n{color:var(--muted);font-size:11px;margin-top:10px;letter-spacing:.08em}
+
+/* ---------- lightbox (foto en grande, fondo negro) ---------- */
+.gallery figure img{cursor:zoom-in}
+.lb{position:fixed;inset:0;background:#000;display:none;align-items:center;
+  justify-content:center;z-index:60}
+.lb.on{display:flex}
+.lb img{max-width:94vw;max-height:92vh;display:block;cursor:e-resize}
+.lb button{position:absolute;background:none;border:0;color:#e8ddc8;
+  font-family:inherit;font-size:26px;line-height:1;cursor:pointer;
+  padding:18px;opacity:.6;transition:opacity .2s}
+.lb button:hover{opacity:1}
+.lbx{top:10px;right:12px;font-size:30px}
+.lbp{left:6px;top:50%;transform:translateY(-50%)}
+.lbn{right:6px;top:50%;transform:translateY(-50%)}
+.lbc{position:absolute;bottom:16px;left:0;right:0;text-align:center;
+  color:#8a8378;font-size:11px;letter-spacing:.12em}
+@media(max-width:640px){.lbp,.lbn{display:none}}
 .pnav{display:flex;justify-content:space-between;padding:26px;font-size:12px;
   letter-spacing:.12em;text-transform:uppercase}
 .pnav a:hover{border-bottom:2px solid var(--ink)}

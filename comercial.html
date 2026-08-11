@@ -24,7 +24,7 @@
 <meta name="theme-color" content="#141210">
 <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=ab18e5e0">
+<link rel="stylesheet" href="style.css?v=902534f8">
 </head>
 <body>
 <header>
@@ -73,6 +73,44 @@ const _m=document.getElementById('mode');
 if(_m)_m.onclick=e=>{e.preventDefault();
   const d=document.documentElement.classList.toggle('dark');
   localStorage.theme=d?'dark':'light'};
+</script>
+<script>
+(()=>{
+const ims=[...document.querySelectorAll('.gallery figure img')];
+if(!ims.length)return;
+const lb=document.createElement('div');lb.className='lb';
+lb.innerHTML='<button class="lbx" aria-label="Cerrar">&times;</button>'
+ +'<button class="lbp" aria-label="Anterior">&larr;</button><img alt="">'
+ +'<button class="lbn" aria-label="Siguiente">&rarr;</button>'
+ +'<div class="lbc mono"></div>';
+document.body.appendChild(lb);
+const im=lb.querySelector('img'),ct=lb.querySelector('.lbc');let k=-1;
+const pad=n=>String(n).padStart(2,'0');
+const show=i=>{k=(i+ims.length)%ims.length;
+ im.src=ims[k].src;im.alt=ims[k].alt;
+ ct.textContent=pad(k+1)+' / '+pad(ims.length);
+ new Image().src=ims[(k+1)%ims.length].src};
+const open=i=>{show(i);lb.classList.add('on');
+ document.body.style.overflow='hidden'};
+const close=()=>{lb.classList.remove('on');
+ document.body.style.overflow=''};
+ims.forEach((el,i)=>el.addEventListener('click',()=>open(i)));
+lb.querySelector('.lbx').onclick=close;
+lb.querySelector('.lbp').onclick=e=>{e.stopPropagation();show(k-1)};
+lb.querySelector('.lbn').onclick=e=>{e.stopPropagation();show(k+1)};
+im.onclick=e=>{e.stopPropagation();show(k+1)};
+lb.onclick=e=>{if(e.target===lb)close()};
+addEventListener('keydown',e=>{
+ if(!lb.classList.contains('on'))return;
+ if(e.key==='Escape')close();
+ else if(e.key==='ArrowLeft')show(k-1);
+ else if(e.key==='ArrowRight')show(k+1)});
+let tx=0;
+lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{
+ const d=e.changedTouches[0].clientX-tx;
+ if(Math.abs(d)>40)show(k+(d<0?1:-1))},{passive:true});
+})();
 </script>
 <footer>
   <span>&copy; Tomás Fernández Vértiz</span>
