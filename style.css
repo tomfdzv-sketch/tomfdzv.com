@@ -28,6 +28,13 @@ header nav .navlang i{font-style:normal;opacity:.5;margin:0 6px}
   text-transform:uppercase;line-height:.9;letter-spacing:-.005em;margin:0;
   font-size:clamp(56px,11vw,150px)}
 .giant a{display:block}
+/* alineación óptica: en Oswald la T, F y V traen distinto aire a la
+   izquierda (12, 61 y 22 milésimas de em); estos márgenes lo anulan
+   para que las tres líneas arranquen en la misma vertical */
+.giant span{display:block}
+.giant .gt{margin-left:-.012em}
+.giant .gf{margin-left:-.061em}
+.giant .gv{margin-left:-.022em}
 .sub{margin:18px 0 0 4px;font-size:12px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--muted)}
 
