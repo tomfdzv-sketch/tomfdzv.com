@@ -177,22 +177,22 @@ body.reel-on .info .mono{color:#c9bda4}
 
 /* ---------- cv ---------- */
 .cv{padding:10px 26px 60px;max-width:860px}
-.cv .cvhead{margin:24px 0 8px;font-size:15px}
-.cv .cvcontact{color:var(--muted);font-size:13px;margin-bottom:8px}
+.cv .cvhead{margin:24px 0 8px;font-size:17px}
+.cv .cvcontact{color:var(--muted);font-size:15px;margin-bottom:8px}
 .cv h3{font-family:"Oswald","Arial Narrow",sans-serif;font-weight:600;
-  text-transform:uppercase;letter-spacing:.06em;font-size:22px;
+  text-transform:uppercase;letter-spacing:.06em;font-size:26px;
   margin:44px 0 6px;border-bottom:2px solid var(--ink);padding-bottom:8px}
 .cv dl{margin:0}
 .cv .cvrow{display:flex;justify-content:space-between;gap:24px;align-items:baseline;
   padding:12px 0;border-bottom:1px solid var(--linec)}
-.cv .cvrow dt{font-size:15px;flex:1 1 auto;min-width:0}
-.cv .cvrow dd{margin:0;font-size:12px;color:var(--muted);letter-spacing:.08em;
+.cv .cvrow dt{font-size:17px;flex:1 1 auto;min-width:0}
+.cv .cvrow dd{margin:0;font-size:14px;color:var(--muted);letter-spacing:.08em;
   text-transform:uppercase;flex:none;white-space:nowrap}
-.cv .cvmeta{font-size:11px;color:var(--muted);letter-spacing:.08em;
+.cv .cvmeta{font-size:13px;color:var(--muted);letter-spacing:.08em;
   text-transform:uppercase;margin-top:3px}
-.cv .cvgroup{margin:22px 0 4px;font-size:18px;letter-spacing:.14em;
+.cv .cvgroup{margin:22px 0 4px;font-size:20px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--muted)}
-.cv .cvdetail{font-size:13px;color:var(--muted);margin-top:2px}
+.cv .cvdetail{font-size:15px;color:var(--muted);margin-top:2px}
 .cv .cvlang{margin:6px 0 0;font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--muted)}
 .cv .cvlang a{border-bottom:1px solid transparent;padding-bottom:2px}
