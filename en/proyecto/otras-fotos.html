@@ -24,7 +24,7 @@
 <meta name="theme-color" content="#141210">
 <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=19b8dcfd">
+<link rel="stylesheet" href="../../style.css?v=a6c82489">
 </head>
 <body>
 <header>
@@ -33,14 +33,15 @@
     <p class="sub">Director · Photographer</p>
   </div>
   <nav>
-    <a href="../film.html">Film</a>
-    <a href="../photography.html" class="on">Photography</a>
-    <a href="../commercial.html">Commercial</a>
-    <a href="../portfolio.html">Portfolio</a>
-    <a href="../cv.html">CV</a>
-    <a href="../info.html">Info</a>
+    <a href="../film.html" class="ni">Film</a>
+    <a href="../photography.html" class="ni on">Photography</a>
+    <a href="../commercial.html" class="ni">Commercial</a>
+    <a href="../portfolio.html" class="ni">Portfolio</a>
+    <a href="../cv.html" class="ni">CV</a>
+    <a href="../info.html" class="ni">Info</a>
     <span class="navlang mono"><a href="../../proyecto/otras-fotos.html">ES</a><i>/</i><a class="on">EN</a></span>
     <a href="#" id="mode" title="Toggle light / dark mode">◐</a>
+    <a href="#" id="burger" aria-label="Menu"><span></span><span></span><span></span></a>
   </nav>
 </header>
 <div class="phead">
@@ -62,6 +63,9 @@ const _m=document.getElementById('mode');
 if(_m)_m.onclick=e=>{e.preventDefault();
   const d=document.documentElement.classList.toggle('dark');
   localStorage.theme=d?'dark':'light'};
+const _b=document.getElementById('burger');
+if(_b)_b.onclick=e=>{e.preventDefault();
+  _b.closest('header').classList.toggle('open')};
 </script>
 <script>
 (()=>{

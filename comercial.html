@@ -24,7 +24,7 @@
 <meta name="theme-color" content="#141210">
 <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=19b8dcfd">
+<link rel="stylesheet" href="style.css?v=a6c82489">
 </head>
 <body>
 <header>
@@ -33,14 +33,15 @@
     <p class="sub">Director · Fotógrafo</p>
   </div>
   <nav>
-    <a href="film.html">Film</a>
-    <a href="foto.html">Fotografía</a>
-    <a href="comercial.html" class="on">Comercial</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="cv.html">CV</a>
-    <a href="info.html">Info</a>
+    <a href="film.html" class="ni">Film</a>
+    <a href="foto.html" class="ni">Fotografía</a>
+    <a href="comercial.html" class="ni on">Comercial</a>
+    <a href="portfolio.html" class="ni">Portfolio</a>
+    <a href="cv.html" class="ni">CV</a>
+    <a href="info.html" class="ni">Info</a>
     <span class="navlang mono"><a class="on">ES</a><i>/</i><a href="en/commercial.html">EN</a></span>
     <a href="#" id="mode" title="Cambiar modo claro/oscuro">◐</a>
+    <a href="#" id="burger" aria-label="Menu"><span></span><span></span><span></span></a>
   </nav>
 </header>
 <div class="band">
@@ -61,7 +62,7 @@ function p(){v.src="assets/reel/"+C[n%C.length];n++;
   var r=v.play();if(r&&r.catch)r.catch(function(){});}
 v.addEventListener('ended',p);v.addEventListener('error',p);p();})();
 </script><script>
-(function(){var F=["assets/new-balance-toluca-away-kit-foto/001.jpg", "assets/new-balance-toluca-away-kit-foto/002.jpg", "assets/new-balance-toluca-away-kit-foto/003.jpg", "assets/new-balance-toluca-away-kit-foto/004.jpg"];
+(function(){var F=["assets/new-balance-toluca-away-kit-foto/001.jpg", "assets/new-balance-toluca-away-kit-foto/002.jpg", "assets/new-balance-toluca-away-kit-foto/003.jpg", "assets/new-balance-toluca-away-kit-foto/004.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g00.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g01.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g02.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g03.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g04.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g05.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g06.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g07.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g08.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g09.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g10.jpg", "assets/new-balance-toluca-away-kit-foto/gate/g11.jpg"];
 var a=document.getElementById('gsa'),b=document.getElementById('gsb');
 if(!a||!F.length)return;var n=0,cur=a,nxt=b;
 function show(){var img=nxt;img.src=F[n%F.length];n++;
@@ -74,6 +75,9 @@ const _m=document.getElementById('mode');
 if(_m)_m.onclick=e=>{e.preventDefault();
   const d=document.documentElement.classList.toggle('dark');
   localStorage.theme=d?'dark':'light'};
+const _b=document.getElementById('burger');
+if(_b)_b.onclick=e=>{e.preventDefault();
+  _b.closest('header').classList.toggle('open')};
 </script>
 <script>
 (()=>{

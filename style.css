@@ -226,11 +226,23 @@ footer a:hover{color:var(--ink)}
   .feature img,.gate .feature img{opacity:1}
   .feature .t,.feature .m{text-shadow:0 1px 18px rgba(0,0,0,.7)}
 }
-/* móvil: menú chico arriba a la derecha, junto al nombre (como escritorio) */
+/* hamburguesa: solo existe en móvil */
+#burger{display:none;cursor:pointer;padding:2px 0 3px}
+#burger span{display:block;width:17px;height:2px;background:var(--ink);
+  margin:3px 0}
+/* móvil: header compacto — ES/EN + ◐ + ☰; las secciones se despliegan */
 @media(max-width:639px){
   header{padding:16px 16px 0}
-  header nav{font-size:10px;letter-spacing:.12em;gap:7px 12px;
-    padding-top:4px;justify-content:flex-end;text-align:right;
-    flex:0 1 46%}
+  header nav{font-size:11px;letter-spacing:.12em;gap:10px 14px;
+    padding-top:6px;justify-content:flex-end;text-align:right;
+    align-items:center;flex:0 1 46%}
+  header nav a.ni{display:none;order:10;width:100%;font-size:12px}
+  header nav .navlang{order:1}
+  #mode{order:2}
+  #burger{display:inline-block;order:3}
+  header.open nav a.ni{display:block}
+  header.open #burger span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+  header.open #burger span:nth-child(2){opacity:0}
+  header.open #burger span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
